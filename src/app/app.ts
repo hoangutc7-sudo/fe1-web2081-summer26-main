@@ -1,24 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { About } from './about/about';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [About],
   templateUrl: './app.html',
-  styleUrl: './app.css',
+  styleUrl: './app.css'
 })
 export class App {
-  title = 'Hello from App Component'; // property -> {{ title }}
-  name = 'Angular';
-  age = 30;
 
-  // method -> event binding (click)
-  sayHello() {
-    alert('Hello from App Component');
-    console.log('Hello from App Component');
-  }
-
-  delete() {
-    console.log('Delete button clicked');
-  }
 }
