@@ -1,0 +1,26 @@
+.stories-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.stories-table th,
+.stories-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.stories-table th {
+  background-color: #f4f4f4;
+}
+
+.hot-badge {
+  margin-left: 8px;
+  padding: 2px 6px;
+  background-color: #ff4d4f;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}

@@ -3,11 +3,12 @@ import { Home } from './home/home';
 import { About } from './about/about';
 import { Contact } from './pages/contact/contact';
 import { Products } from './pages/products/products';
-
+import { MyWork } from './my-work/my-work';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'about', component: About },
   { path: 'contact', component: Contact },
-  { path: 'products', component: Products }
+  { path: 'products', component: Products },
+  { path: 'my-work', component: MyWork }
 ];
