@@ -1,0 +1,24 @@
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-add-story',
+  imports: [ReactiveFormsModule],
+  templateUrl: './add-story.html',
+  styleUrl: './add-story.css',
+})
+export class AddStory {
+  // khai bao bien form
+  addForm: FormGroup;
+
+  // khoi tao form
+  constructor(private fb: FormBuilder) {
+    this.addForm = this.fb.group({
+      title: '',
+    });
+  }
+
+  submitForm() {
+    console.log(this.addForm.value);
+  }
+}

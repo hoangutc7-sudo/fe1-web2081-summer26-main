@@ -1,0 +1,49 @@
+<div class="max-w-md mx-auto bg-white shadow rounded p-6">
+  <h2 class="text-2xl font-bold mb-5">Bài 2 - Đăng ký</h2>
+
+  <form [formGroup]="addForm" (ngSubmit)="submitForm()">
+
+    <label class="block mb-2">Username</label>
+    <input
+      type="text"
+      formControlName="username"
+      class="w-full border rounded p-2 mb-3"
+    >
+
+    @if(addForm.get('username')?.invalid && addForm.get('username')?.touched){
+      <p class="text-red-500 mb-3">Username bắt buộc</p>
+    }
+
+    <label class="block mb-2">Email</label>
+    <input
+      type="email"
+      formControlName="email"
+      class="w-full border rounded p-2 mb-3"
+    >
+
+    @if(addForm.get('email')?.invalid && addForm.get('email')?.touched){
+      <p class="text-red-500 mb-3">Email không hợp lệ</p>
+    }
+
+    <label class="block mb-2">Password</label>
+    <input
+      type="password"
+      formControlName="password"
+      class="w-full border rounded p-2 mb-3"
+    >
+
+    @if(password?.invalid && password?.touched){
+      <p class="text-red-500 mb-3">
+        Password phải có ít nhất 6 ký tự
+      </p>
+    }
+
+    <button
+      type="submit"
+      class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
+    >
+      Đăng ký
+    </button>
+
+  </form>
+</div>
