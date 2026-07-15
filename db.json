@@ -1,3 +1,16 @@
 {
-  "stories": []
+  "stories": [
+    {
+      "id": 1,
+      "title": "One Piece",
+      "author": "Oda",
+      "views": 100000
+    },
+    {
+      "id": 2,
+      "title": "Naruto",
+      "author": "Kishimoto",
+      "views": 90000
+    }
+  ]
 }

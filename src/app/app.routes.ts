@@ -6,6 +6,7 @@ import { Products } from './pages/products/products';
 import { MyWork } from './my-work/my-work';
 import { Lab41 } from './pages/lab4.1/lab4.1';
 import { Lab42 } from './pages/lab4.2/lab4.2';
+import { Stories } from './stories/stories';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'my-work', component: MyWork },
   { path: 'lab4.1', component: Lab41 },
   { path: 'lab4.2', component: Lab42 },
+  { path: 'stories', component: Stories },
 ];
