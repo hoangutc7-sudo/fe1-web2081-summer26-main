@@ -1,0 +1,35 @@
+h1{
+    text-align:center;
+    color:#1677ff;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table,th,td{
+    border:1px solid #ddd;
+}
+
+th{
+    background:#1677ff;
+    color:white;
+    padding:10px;
+}
+
+td{
+    text-align:center;
+    padding:10px;
+}
+
+img{
+    width:70px;
+    height:100px;
+    object-fit:cover;
+}
+
+.hot{
+    color:red;
+    font-weight:bold;
+}

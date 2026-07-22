@@ -1,24 +1,57 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { StoryService } from '../services/story-service';
+
 
 @Component({
+  standalone: true,
   selector: 'app-add-story',
   imports: [ReactiveFormsModule],
   templateUrl: './add-story.html',
-  styleUrl: './add-story.css',
+  styleUrls: ['./add-story.css'],
 })
 export class AddStory {
-  // khai bao bien form
   addForm: FormGroup;
 
-  // khoi tao form
-  constructor(private fb: FormBuilder) {
+  loading = false;
+  error = '';
+
+  constructor(
+    private fb: FormBuilder,
+    private storyService: StoryService
+  ) {
     this.addForm = this.fb.group({
-      title: '',
+      title: ['', Validators.required],
+      author: [''],
+      views: [0],
     });
   }
 
   submitForm() {
-    console.log(this.addForm.value);
+    if (this.addForm.invalid) return;
+
+    this.loading = true;
+    this.error = '';
+
+    this.storyService.addStory(this.addForm.value).subscribe({
+      next: () => {
+        this.loading = false;
+        alert('Thêm thành công');
+        this.addForm.reset({
+          title: '',
+          author: '',
+          views: 0,
+        });
+      },
+      error: () => {
+        this.loading = false;
+        this.error = 'Có lỗi xảy ra!';
+      },
+    });
   }
 }

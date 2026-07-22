@@ -7,10 +7,48 @@
       "views": 100000
     },
     {
-      "id": 2,
-      "title": "Naruto",
-      "author": "Kishimoto",
-      "views": 90000
+      "title": "5y45y",
+      "author": "54y45y",
+      "views": 34736,
+      "id": 2
+    },
+    {
+      "title": "fdbfgfd",
+      "author": "fdhfdhfdh",
+      "views": 574457,
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 16",
+      "price": 25000000
+    },
+    {
+      "name": "tjrj",
+      "price": null,
+      "id": 2
+    },
+    {
+      "name": "",
+      "price": "",
+      "id": 3
+    },
+    {
+      "name": "ỵt",
+      "price": null,
+      "id": 4
+    },
+    {
+      "name": null,
+      "price": null,
+      "id": 5
+    },
+    {
+      "name": "rhh",
+      "price": null,
+      "id": 6
     }
   ]
 }

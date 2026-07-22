@@ -1,8 +1,34 @@
-<h2>Thêm truyện tranh</h2>
 <form [formGroup]="addForm" (ngSubmit)="submitForm()">
+
   <div>
-    <label>Tên truyện</label>
-    <input type="text" formControlName="title" />
+    <label>Title</label>
+    <input type="text" formControlName="title">
+
+    @if(addForm.get('title')?.invalid && addForm.get('title')?.touched){
+      <p style="color:red">Title là bắt buộc</p>
+    }
   </div>
-  <button type="submit" class="btn btn-primary">Thêm truyện</button>
+
+  <div>
+    <label>Author</label>
+    <input type="text" formControlName="author">
+  </div>
+
+  <div>
+    <label>Views</label>
+    <input type="number" formControlName="views">
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="loading || addForm.invalid">
+
+    {{ loading ? 'Đang gửi' : 'Thêm Story' }}
+
+  </button>
+
+  @if(error){
+    <p style="color:red">{{ error }}</p>
+  }
+
 </form>

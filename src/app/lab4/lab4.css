@@ -1,0 +1,16 @@
+.lab4-nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.lab4-nav a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  color: #1f2937;
+}
+.lab4-nav a:hover {
+  background: #e2e8f0;
+}

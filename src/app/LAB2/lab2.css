@@ -1,0 +1,16 @@
+.lab2-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.lab2-nav a {
+  color: #1f2937;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+}
+.lab2-nav a:hover {
+  background-color: #e5e7eb;
+}

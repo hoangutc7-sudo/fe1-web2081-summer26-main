@@ -1,0 +1,48 @@
+<h2>Danh sách Stories</h2>
+
+<!-- Bài 3 -->
+<p *ngIf="loading">Đang tải dữ liệu...</p>
+
+<p *ngIf="error" style="color:red">
+  {{ error }}
+</p>
+
+<!-- Bài 1 -->
+<table border="1" cellpadding="8" *ngIf="!loading">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Views</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let story of stories">
+      <td>{{ story.id }}</td>
+      <td>{{ story.title }}</td>
+      <td>{{ story.author }}</td>
+      <td>{{ story.views }}</td>
+
+      <!-- Bài 4 -->
+      <td>
+        <span *ngIf="story.views > 90000" style="color:red">
+          HOT
+        </span>
+      </td>
+
+      <td>
+        <!-- Bài 5 -->
+        <button
+          (click)="deleteStory(story.id)"
+          [disabled]="deletingId === story.id"
+        >
+          Xóa
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

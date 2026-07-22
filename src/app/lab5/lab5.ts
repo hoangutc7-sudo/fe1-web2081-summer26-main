@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 interface Story {
   id: number;
@@ -10,42 +10,49 @@ interface Story {
 }
 
 @Component({
-  selector: 'app-stories',
-  imports: [RouterLink],
-  templateUrl: './stories.html',
-  styleUrl: './stories.css',
+  standalone: true,
+  selector: 'app-lab5',
+  imports: [CommonModule],
+  templateUrl: './lab5.html',
+  styleUrls: ['./lab5.css'],
 })
-export class Stories {
+export class Lab5 {
   stories: Story[] = [];
 
-  // httpClient ~ axios
+  loading: boolean = false;
+  error: string = '';
+  deletingId: number | null = null;
+
   constructor(private http: HttpClient) {}
-  // genric type <T>
+
   ngOnInit() {
+    this.loading = true;
+
     this.http.get<Story[]>('http://localhost:3000/stories').subscribe({
       next: (data) => {
-        console.log(data);
         this.stories = data;
+        this.loading = false;
       },
       error: () => {
-        console.log('error');
+        this.error = 'Không tải được dữ liệu';
+        this.loading = false;
       },
     });
   }
 
-  // method delete
   deleteStory(id: number) {
-    console.log(id);
-    // confirm truoc khi xoa
-    if (!confirm('Xoa ko')) return;
+    if (!confirm('Xóa không?')) return;
+
+    this.deletingId = id;
 
     this.http.delete(`http://localhost:3000/stories/${id}`).subscribe({
       next: () => {
-        // remove item co id can xoa: filter trong js
         this.stories = this.stories.filter((story) => story.id !== id);
+        this.deletingId = null;
       },
       error: () => {
-        console.log('error');
+        this.error = 'Xóa thất bại';
+        this.deletingId = null;
       },
     });
   }

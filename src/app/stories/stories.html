@@ -1,46 +1,25 @@
-<h2>Danh sách Stories</h2>
+<h2>Danh sách truyện</h2>
+<table border="1" cellpadding="10" cellspacing="0">
+  <tr>
+    <th>ID</th>
+    <th>Tên truyện</th>
+    <th>Tác giả</th>
+    <th>Lượt xem</th>
+    <th>Hành động</th>
+  </tr>
 
-<div *ngIf="loading">
-  Đang tải dữ liệu...
-</div>
-
-<div *ngIf="error" style="color:red">
-  {{ error }}
-</div>
-
-<table border="1" cellpadding="8" *ngIf="!loading && !error">
-  <thead>
+  @for (story of stories; track story.id) {
     <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Views</th>
-      <th>Status</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let story of stories">
       <td>{{ story.id }}</td>
       <td>{{ story.title }}</td>
       <td>{{ story.author }}</td>
       <td>{{ story.views }}</td>
-
       <td>
-        <span *ngIf="story.views > 90000" style="color:red;font-weight:bold">
-          HOT 🔥
-        </span>
-      </td>
-
-      <td>
-        <button
-          (click)="deleteStory(story.id)"
-          [disabled]="deletingId === story.id"
-        >
-          {{ deletingId === story.id ? 'Đang xóa...' : 'Xóa' }}
+        <button (click)="deleteStory(story.id)">Xóa</button>
+        <button>
+          <a [routerLink]="['/edit', story.id]"> Edit </a>
         </button>
       </td>
     </tr>
-  </tbody>
+  }
 </table>
